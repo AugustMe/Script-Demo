@@ -1,12 +1,12 @@
 一开始的图片：
 
-
-![Instance Segmentation Sample](img/renwu.jpg)
+![raw_pic](img/renwu.jpg)
 
 
 
 运行后的图片：
 
+![raw_pic_after](img/renwu_jietu.jpg)
 
 
 
