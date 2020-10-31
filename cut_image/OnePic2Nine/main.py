@@ -10,7 +10,7 @@ Created on Fri Oct 30 14:53:34 2020
 from PIL import Image
 import os
 
-#将图片填充为正方形
+#将图片填充为正方形,根据待切割图片的大小选择是否填充
 def fill_image(image):
     width, height = image.size
     #选取长和宽中较大值作为新图片的
@@ -72,6 +72,6 @@ if __name__ == '__main__':
     #file_path = input('请输入图片的路径:\n')
     image = Image.open(file_path)
     #image.show()
-    image = fill_image(image) # 填充
+    image = fill_image(image) # 根据待切割图片的大小选择是否填充
     image_list = cut_image(image)
     save_images(image_list)
