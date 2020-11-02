@@ -3,6 +3,8 @@
 Created on Thu Jul 16 11:24:48 2020
 
 @author: zqq
+
+windows环境下运行的
 """
 
 from PIL import Image
@@ -44,26 +46,29 @@ def cut_image(image):
     return image_list
    
 # 保存
-def save_images(image_list,pic_id):
+def save_images(image_list,pic_id,folder):
     index = 1
     for image in image_list:
         # print("iamge type:", image)
-        file_name = str(pic_id) + "_" + str(index) + '.jpg'
-        print('file_name:',file_name.split('\\')[-1])
-        path = os.getcwd()+ '\\img_plus_res'
-        print('save path:',path)
+        file_name = str(pic_id) + "_" + str(index) + '.png' #str类型，换成jpg报错，见method_3,linux环境下
+        # print('file:',file_name)
+        
+        path = os.getcwd()+ '/img_plus_res'+'/' +folder
+        # print('save path:',path)
         if not os.path.exists(path):
             os.makedirs(path)
-        image.save(os.path.join(path,file_name.split('\\')[-1]))
-        print(os.path.join(path, file_name.split('\\')[-1] ))
+    
+        print(os.path.join(path,file_name))
+        image.save(os.path.join(path,file_name))
 
         index += 1
            
 # 读取图片
 def read_img(file_path):
     data_list = [x for x in os.listdir(file_path)] # 所有图片分类目录
-    print(data_list)
+    print('data_list:',data_list)
     for idx, folder in enumerate(data_list):  # 遍历每个文件夹中的图片，idx表示索引
+        print('idx,folder:',idx,folder)
         for im in glob.glob(file_path+'/'+folder + '/*.jpg'):  # *:匹配0个或多个字符
             print('reading the images:%s' % (im))
             img = io.imread(im)
@@ -73,14 +78,14 @@ def read_img(file_path):
             image_list = cut_image(img) # 切图,对每张图片裁剪成9张
             # 保存裁好的图片  
             file_name = im.split('/')[-1] #取图片原名，去除图片名后缀
-            file_name_ = file_name.split('\\')[-1]
+            file_name_ = file_name.split('\\')[-1]  # windows环境下
             pic_id = file_name_.split('.')[0]      
             print('pic_id:',pic_id)
-            save_images(image_list,pic_id)
+            save_images(image_list,pic_id,folder)
 
 # 运行接口
 if __name__ == '__main__':            
-    file_path = 'img_plus'
+    file_path = 'img_plus/'
     read_img(file_path)
             
 
