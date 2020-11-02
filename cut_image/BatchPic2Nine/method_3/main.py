@@ -3,6 +3,9 @@
 Created on Thu Jul 16 11:24:48 2020
 
 @author: zqq
+
+linux环境下运行
+
 """
 
 from PIL import Image
