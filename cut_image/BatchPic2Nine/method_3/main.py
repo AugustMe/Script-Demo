@@ -51,7 +51,7 @@ def save_images(image_list,pic_id,folder):
     index = 1
     for image in image_list:
         # print("iamge type:", image)
-        file_name = str(pic_id) + "_" + str(index) + '.jpg'  # png或者 jpg 都可以
+        file_name = str(pic_id) + "_" + str(index) + '.jpg'  # png或者 jpg 都可以，和原始图片有关
         save_path = os.getcwd()+ '/img_res'+'/'+folder
         print('save_path:',save_path)
         if not os.path.exists(save_path):
