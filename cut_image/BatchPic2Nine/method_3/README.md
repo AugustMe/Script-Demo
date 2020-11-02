@@ -1,3 +1,4 @@
+~~~
 ---img
     ---v1
         ---1.jpg
@@ -7,8 +8,9 @@
         ---4.jpg   
 main.py
 
+~~~
 运行python main.py
-
+~~~
 ---img
     ---v1
         ---1.jpg
@@ -31,3 +33,4 @@ main.py
           ...
         ---3_9.jpg
 main.py
+~~~
